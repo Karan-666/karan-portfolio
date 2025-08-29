@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Karan Portfolio</title>
+    <!-- Linked output.css file of tailwind here -->
+    <link href="./tailwind4/output.css" rel="stylesheet" />
+    <style>
+      /* smooth scrolling when clicking nav links, this make internal transition smooth */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="bg-[#0B0B0C] text-slate-200">
+    <!-- ===== Header Section ===== -->
+
+    <!-- ===== Theme: Using a dark blackish background and teal color with specific hex color code which I like ===== -->
+
+    <!-- Using Flex -->
+    <header
+      class="w-full fixed top-0 left-0 flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-[#111112]/95 backdrop-blur-md z-20"
+    >
+      <!-- Left side: My name with bluish gradient effect -->
+      <h1
+        class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#4EDCD8] to-blue-500 text-transparent bg-clip-text mb-2 sm:mb-0"
+      >
+        Karan Kumar
+      </h1>
+
+      <!-- Right side: navigation bar + theme toggle (this is static, not working ) -->
+      <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+        <!-- Theme toggle -->
+        <button
+          id="theme-toggle-button"
+          class="p-2 rounded-full hover:bg-[#1E1E20] transition duration-300 self-start sm:self-auto"
+        >
+          <!-- moon icon -->
+          <svg
+            id="moon-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-slate-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+            />
+          </svg>
+          <!-- sun icon hidden by default, used very little java script below to unhide it on click -->
+          <svg
+            id="sun-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-slate-400 hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a5 5 0 015 5H7a5 5 0 015-5z"
+            />
+          </svg>
+        </button>
+
+        <!-- Navigation links (stack on mobile, horizontal on tablet or bigger devices) -->
+        <!-- Not used logo as it looked better this way, on hover, the color will change to teal-->
+        <nav class="flex flex-col sm:flex-row gap-2 sm:gap-6 text-center">
+          <a href="#home" class="hover:text-[#4EDCD8] transition">Home</a>
+          <a href="#about" class="hover:text-[#4EDCD8] transition">About</a>
+          <a href="#skills" class="hover:text-[#4EDCD8] transition">Skills</a>
+          <a href="#certifications" class="hover:text-[#4EDCD8] transition"
+            >Certifications</a
+          >
+          <a href="#projects" class="hover:text-[#4EDCD8] transition"
+            >Projects</a
+          >
+          <a href="#contact" class="hover:text-[#4EDCD8] transition">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===== Home Section ===== -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center py-20 px-4 scroll-mt-20"
+    >
+      <!-- This is the main wrapper for the home section.
+       - min-h-screen → makes it cover full screen height
+       - flex items-center justify-center → centers everything both vertically & horizontally
+       - py-20 px-4 → padding for breathing space
+       - scroll-mt-20 → ensures when we scroll via navbar links, it doesn't overlap -->
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12"
+      >
+        <!-- ===== Left Text Section (Intro + Buttons + Socials) ===== -->
+        <div class="md:w-2/3 flex flex-col gap-6 items-start">
+          <!-- md:w-2/3 → takes 2/3 width on medium+ screens
+           flex-col → stacks elements vertically
+           gap-6 → adds spacing between elements
+           items-start → aligns all items to the left -->
+
+          <!-- Big headline -->
+          <h1 class="text-5xl lg:text-7xl font-bold text-white">
+            Hi, I’m Karan Kumar
+          </h1>
+          <!-- text-5xl → big on small screens, text-7xl → extra big on large screens
+           font-bold → makes it bold
+           text-white → makes it white (so it stands out on dark bg) -->
+
+          <!-- Subheading / Tagline -->
+          <p class="text-xl lg:text-2xl text-slate-400">
+            Full-Stack Developer | MERN | Java Backend | PostgreSQL
+          </p>
+          <!-- Slightly smaller than heading, greyish color for softer look -->
+
+          <!-- ===== Buttons Section ===== -->
+          <div class="flex flex-col sm:flex-row gap-4 mt-4">
+            <!-- Projects Button -->
+            <a
+              href="#projects"
+              class="bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              Projects
+            </a>
+            <!-- - bg-[#4EDCD8] → teal background
+             - hover:bg → darker teal on hover
+             - text-black → text color black
+             - py-2 px-6 → padding
+             - rounded-lg → slightly curved edges
+             - hover:-translate-y-1 → lifts button slightly on hover -->
+
+            <!-- Resume Download Button -->
+            <a
+              href="./resources/resume.pdf"
+              target="_blank"
+              class="border border-slate-500 hover:bg-[#1E1E20] text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              Download Resume
+            </a>
+            <!-- - border border-slate-500 → adds grey border
+             - hover:bg-[#1E1E20] → black background on hover
+             - text-white → white text
+             - target="_blank" → opens resume in new tab -->
+          </div>
+
+          <!-- ===== Social Media Icons Section ===== -->
+
+          <!-- Note: All the icons I download were in dark color, that are present localy, so I will use use color inversion to make them light -->
+
+          <div class="flex items-center gap-6 mt-6">
+            <!-- flex gap-6 → makes icons sit in a row with spacing -->
+
+            <!-- GitHub -->
+            <a
+              href="https://github.com/Karan-666"
+              target="_blank"
+              class="hover:scale-110 transition-transform duration-300"
+            >
+              <img
+                src="./images/github.svg"
+                alt="GitHub"
+                class="w-8 h-8 transition duration-300 filter invert brightness-0 hover:invert-0 hover:brightness-150 hover:drop-shadow-[0_0_6px_#14b8a6]"
+              />
+              <!-- w-8 h-8 → sets size
+               filter invert brightness-0 → default: dark icon
+               hover:invert-0 hover:brightness-150 → makes it teal-ish & brighter on hover
+               hover:drop-shadow → gives glowing teal effect -->
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/karan842/"
+              target="_blank"
+              class="hover:scale-110 transition-transform duration-300"
+            >
+              <img
+                src="./images/linkedin.svg"
+                alt="LinkedIn"
+                class="w-8 h-8 transition duration-300 filter invert brightness-0 hover:invert-0 hover:brightness-150 hover:drop-shadow-[0_0_6px_#14b8a6]"
+              />
+            </a>
+
+            <!-- HackerRank -->
+            <a
+              href="https://www.hackerrank.com/profile/karankumar00619"
+              target="_blank"
+              class="hover:scale-110 transition-transform duration-300"
+            >
+              <img
+                src="./images/hackerrank.svg"
+                alt="HackerRank"
+                class="w-8 h-8 transition duration-300 filter invert brightness-0 hover:invert-0 hover:brightness-150 hover:drop-shadow-[0_0_6px_#14b8a6]"
+              />
+            </a>
+          </div>
+        </div>
+        <!-- ===== End of Left Text Section ===== -->
+
+        <!-- ===== Right Image Section (Profile Picture) ===== -->
+        <div
+          class="md:w-1/3 flex justify-center [perspective:1000px] mt-10 md:mt-0"
+        >
+          <img
+            src="./images/profile_yellow_bg.png"
+            alt="Karan Profile Picture"
+            class="w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full object-cover shadow-lg shadow-sky-500/30 transition-transform duration-500 [transform-style:preserve-3d] hover:[transform:rotateY(15deg)]"
+          />
+          <!-- - rounded-full → makes it circular
+           - object-cover → keeps image proportional
+           - shadow-lg shadow-sky-500/30 → adds soft blue glow
+           - perspective + hover rotateY → gives a cool 3D tilt on hover -->
+        </div>
+        <!-- ===== End of Right Image Section ===== -->
+      </div>
+    </section>
+    <!-- ===== End of Home Section ===== -->
+
+    <!-- ===== About Section ===== -->
+    <section
+      id="about"
+      class="min-h-screen flex items-center justify-center py-20 px-4"
+    >
+      <!-- min-h-screen = make section fill the full screen height -->
+      <!-- flex + items-center + justify-center = center content vertically and horizontally -->
+      <!-- py-20 px-4 = vertical and horizontal padding, makes it not stick to edges -->
+
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12"
+      >
+        <!-- container mx-auto = center the container horizontally, yay -->
+        <!-- flex flex-col = stack text and image vertically on mobile -->
+        <!-- md:flex-row = side by side on tablet and desktop -->
+        <!-- items-center = vertical align in column mode -->
+        <!-- justify-between = spread left and right nicely in row mode -->
+        <!-- gap-12 = big space between text and image -->
+
+        <!-- ===== Left Side Text ===== -->
+        <div class="md:w-2/3 flex flex-col gap-6 items-start">
+          <!-- md:w-2/3 = take 2/3 width on Larger screen devices -->
+          <!-- flex flex-col = stack heading, paragraph, button vertically -->
+          <!-- gap-6 = space between heading, paragraph, button -->
+          <!-- items-start = align left (otherwise it might center, eww) -->
+
+          <div class="inline-flex flex-col items-center">
+            <h1 class="text-5xl lg:text-6xl font-bold text-white">About Me</h1>
+            <div class="w-2/3 h-1 bg-[#4EDCD8] mt-2"></div>
+          </div>
+          <!-- big heading -->
+          <!-- text-5xl = mobile big enough -->
+          <!-- lg:text-6xl = even bigger on desktop -->
+          <!-- font-bold = make letters thick, look strong -->
+          <!-- text-white = white text so visible on dark bg -->
+
+          <p class="text-lg lg:text-xl text-slate-400 pt-5 leading-relaxed">
+            I’m a
+            <span class="text-[#4EDCD8] font-semibold"
+              >Full-Stack Developer</span
+            >
+            with 2+ years of experience building scalable apps using
+            <span class="text-[#4EDCD8] font-semibold">Java Spring Boot</span>
+            and no-code platforms. Currently learning the
+            <span class="text-[#4EDCD8] font-semibold">MERN stack</span> to
+            deliver modern, end-to-end solutions. <br /><br />
+            Outside of work, I enjoy
+            <span class="text-[#4EDCD8] font-semibold"
+              >playing guitar, writing poetry, and anime</span
+            >
+            — creative outlets that inspire my problem-solving mindset.
+          </p>
+          <!-- text-lg = normal readable size on mobile -->
+          <!-- lg:text-xl = slightly bigger on big screens -->
+          <!-- text-slate-400 = soft gray text, easy on eyes -->
+          <!-- pt-5 = padding top so it’s not too close to heading -->
+          <!-- leading-relaxed = line height, makes text not cramped -->
+          <!-- span with teal color = highlight important stuff, looks fancy -->
+
+          <!-- ===== Learn More Button ===== -->
+          <div>
+            <a
+              href="https://www.linkedin.com/in/karan842/"
+              target="_blank"
+              class="border border-slate-500 hover:bg-[#1E1E20] text-white font-semibold py-2 px-6 rounded-lg transition duration-300"
+            >
+              Learn More
+            </a>
+            <!-- simple button -->
+            <!-- border-slate-500 = gray border -->
+            <!-- hover:bg-[#1E1E20] = dark background on hover -->
+            <!-- text-white = text readable -->
+            <!-- py-2 px-6 = padding vertical and horizontal -->
+            <!-- rounded-lg = round corners, not too sharp -->
+            <!-- transition duration-300 = smooth hover effect -->
+            <!-- target="_blank" = open in new tab because I’m polite -->
+          </div>
+        </div>
+
+        <!-- ===== Right Side Image ===== -->
+        <div class="md:w-1/3 flex justify-center mt-10 md:mt-0">
+          <!-- md:w-1/3 = 1/3 width on Larger screen devices -->
+          <!-- flex justify-center = center image horizontally -->
+          <!-- mt-10 = push image down on mobile so it doesn’t bump text -->
+          <!-- md:mt-0 = remove extra margin on big screens -->
+
+          <img
+            src="./images/beach.jpg"
+            alt="Karan Profile Picture"
+            class="w-64 h-48 sm:w-72 sm:h-56 lg:w-96 lg:h-72 object-cover shadow-lg shadow-sky-500/30 border-2 border-black animate-fade-in-out rounded-lg"
+          />
+          <!-- w-64 h-48 = mobile size -->
+          <!-- sm:w-72 sm:h-56 = slightly bigger on tablet -->
+          <!-- lg:w-96 lg:h-72 = big on desktop -->
+          <!-- object-cover = fill frame nicely without stretching -->
+          <!-- shadow-lg shadow-sky-500/30 = fancy glow shadow -->
+          <!-- border-2 border-black = border around image -->
+          <!-- animate-fade-in-out = fade effect, makes it fancy -->
+          <!-- rounded-lg = rounded corners -->
+        </div>
+      </div>
+    </section>
+
+    <!-- End of about section -->
+
+    <!-- ===== Skills Section ===== -->
+    <section
+      id="skills"
+      class="min-h-screen flex items-center py-20 px-4 bg-[#0f0f0f]"
+    >
+      <!-- min-h-screen = fill full screen height -->
+      <!-- flex items-center = center content vertically -->
+      <!-- py-20 px-4 = padding around content -->
+      <!-- bg-[#0f0f0f] = dark background -->
+
+      <div class="container mx-auto w-full">
+        <!-- container = center horizontally, max width -->
+        <!-- mx-auto = auto margin left/right -->
+        <!-- w-full = full width -->
+
+        <!-- Section Title -->
+        <div class="text-center mb-12">
+          <!-- text-center = center text -->
+          <!-- mb-12 = spacing below title -->
+
+          <h2 class="text-3xl lg:text-4xl font-bold text-white">My Skills</h2>
+          <!-- text-3xl = small screens -->
+          <!-- lg:text-4xl = large screens -->
+          <!-- font-bold = bold letters -->
+          <!-- text-white = white color -->
+
+          <div class="w-25 h-1 bg-[#4EDCD8] mt-2 mx-auto"></div>
+          <!-- small underline below title -->
+          <!-- w-25 = width, h-1 = height -->
+          <!-- bg-[#4EDCD8] = teal color -->
+          <!-- mt-2 = margin top, mx-auto = center -->
+        </div>
+
+        <!-- Skills Grid -->
+        <div
+          class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- max-w-5xl = limit width -->
+          <!-- grid-cols-1 = mobile, 2 = tablet, 3 = desktop -->
+          <!-- gap-8 = spacing between skill items -->
+
+          <!-- ===== Skill Item ===== -->
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <!-- p-3 = padding inside card -->
+            <!-- rounded-lg = rounded corners -->
+            <!-- transition-all = smooth effect on hover -->
+            <!-- hover:scale-105 = pop a bit on hover -->
+            <!-- hover:shadow-xl = add shadow on hover -->
+
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300">HTML & CSS</span>
+              <span class="text-slate-400">85%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 85%"
+              ></div>
+              <!-- width=skill percentage -->
+              <!-- overflow-hidden = keep inside container -->
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300">React</span>
+              <span class="text-slate-400">75%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 75%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300">Java</span>
+              <span class="text-slate-400">85%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300">JavaScript</span>
+              <span class="text-slate-400">80%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300">PostgreSQL</span>
+              <span class="text-slate-400">95%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 95%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300">MongoDB</span>
+              <span class="text-slate-400">70%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 70%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300">Tailwind CSS</span>
+              <span class="text-slate-400">85%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300"
+                >Node / Express JS</span
+              >
+              <span class="text-slate-400">75%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 75%"
+              ></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card p-3 rounded-lg transition-all duration-500 hover:scale-105 hover:shadow-xl"
+          >
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-semibold text-slate-300">Spring Boot</span>
+              <span class="text-slate-400">70%</span>
+            </div>
+            <div class="w-full bg-[#1E1E20] rounded-full h-2.5 overflow-hidden">
+              <div
+                class="bg-[#4EDCD8] h-2.5 rounded-full skill-fill"
+                style="width: 70%"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <!-- End Skills Grid -->
+      </div>
+      <!-- End Container -->
+    </section>
+
+    <!-- End of skill section -->
+
+    <section
+      id="certifications"
+      class="min-h-screen flex items-center py-20 px-4"
+    >
+      <!-- Main container to center everything -->
+      <div class="container mx-auto">
+        <!-- Section title -->
+        <div class="text-center mb-5">
+          <h2 class="text-3xl lg:text-3xl font-bold text-white">
+            Certifications
+          </h2>
+          <!-- Little underline for style -->
+          <div class="w-32 h-1 bg-[#4EDCD8] mt-2 mx-auto"></div>
+        </div>
+
+        <!-- Grid for certificates -->
+        <!-- 1 column on mobile, 2 on tablets, 3 on desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          <!-- Certificate Card Template -->
+          <div
+            class="bg-[#111112] border border-slate-700 rounded-lg p-3 flex flex-col justify-between shadow-lg"
+          >
+            <!-- Certificate info -->
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Blockchain Intern
+              </h3>
+              <p class="text-sm text-slate-400">Issuer: IIT Patna</p>
+              <p class="text-sm text-slate-400">Year: 2020</p>
+            </div>
+            <!-- Link to certificate -->
+            <a
+              href="https://drive.google.com/file/d/1593nfsvdigVCGbiPt4V_4TLR8nbmoQfI/view?usp=share_link"
+              target="_blank"
+              class="mt-4 bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-4 rounded-lg text-center transition duration-300"
+            >
+              View Certificate
+            </a>
+          </div>
+
+          <div
+            class="bg-[#111112] border border-slate-700 rounded-lg p-6 flex flex-col justify-between shadow-lg"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                NPTEL: Design and Analysis of Algorithms
+              </h3>
+              <p class="text-sm text-slate-400">Issuer: IIT Kharagpur</p>
+              <p class="text-sm text-slate-400">Year: 2021</p>
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1RFD523jDcLZ1QUAR_SGlmalAUhyJzVC0/view?usp=share_link"
+              target="_blank"
+              class="mt-4 bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-4 rounded-lg text-center transition duration-300"
+            >
+              View Certificate
+            </a>
+          </div>
+
+          <div
+            class="bg-[#111112] border border-slate-700 rounded-lg p-6 flex flex-col justify-between shadow-lg"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Full Stack Development Training
+              </h3>
+              <p class="text-sm text-slate-400">Issuer: IIT Kanpur</p>
+              <p class="text-sm text-slate-400">Year: 2020</p>
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1q5uufMq1M6dIntAmsQoGTAwrmdQQG7cX/view"
+              target="_blank"
+              class="mt-4 bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-4 rounded-lg text-center transition duration-300"
+            >
+              View Certificate
+            </a>
+          </div>
+
+          <div
+            class="bg-[#111112] border border-slate-700 rounded-lg p-6 flex flex-col justify-between shadow-lg"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                CoCubes Assessment Score
+              </h3>
+              <p class="text-sm text-slate-400">Issuer: Aon</p>
+              <p class="text-sm text-slate-400">Year: 2023</p>
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1KSbcMUbmiphPp5RBC8aytZiTxC5D4JuG/view?usp=sharing"
+              target="_blank"
+              class="mt-4 bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-4 rounded-lg text-center transition duration-300"
+            >
+              View Certificate
+            </a>
+          </div>
+
+          <div
+            class="bg-[#111112] border border-slate-700 rounded-lg p-6 flex flex-col justify-between shadow-lg"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                1st Place, Public Speaking, National Seminar
+              </h3>
+              <p class="text-sm text-slate-400">Issuer: NSIT, Patna</p>
+              <p class="text-sm text-slate-400">Year: 2019</p>
+            </div>
+            <a
+              href="https://drive.google.com/file/d/1KEA7THCCCZ4KryudYj3Vx6Xh9JYckaFM/view?usp=share_link"
+              target="_blank"
+              class="mt-4 bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-4 rounded-lg text-center transition duration-300"
+            >
+              View Certificate
+            </a>
+          </div>
+
+          <div
+            class="bg-[#111112] border border-slate-700 rounded-lg p-6 flex flex-col justify-between shadow-lg"
+          >
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                6-Star Gold Badge - Problem Solving
+              </h3>
+              <p class="text-sm text-slate-400">Issuer: HackerRank</p>
+            </div>
+            <a
+              href="https://www.hackerrank.com/profile/karankumar00619"
+              target="_blank"
+              class="mt-4 bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-4 rounded-lg text-center transition duration-300"
+            >
+              View Certificate
+            </a>
+          </div>
+        </div>
+        <!-- End Grid -->
+      </div>
+      <!-- End Container -->
+    </section>
+
+    <!-- End of certification section -->
+
+    <section id="projects" class="min-h-screen flex items-center py-20 px-4">
+      <!-- Main container to center content -->
+      <div class="container mx-auto">
+        <!-- Section title -->
+        <div class="text-center mb-8">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white">Projects</h2>
+          <!-- little underline for style, looks fancy -->
+          <div class="w-24 h-1 bg-[#4EDCD8] mt-2 mx-auto"></div>
+        </div>
+
+        <!-- Projects grid -->
+        <!-- On mobile: 1 column, tablets: 2 columns, desktop: 2 columns -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 justify-center"
+        >
+          <!-- Project Card 1 -->
+          <div
+            class="bg-[#111112] rounded-lg overflow-hidden shadow-[0_0_2px_1px_rgba(34,197,255,0.5)] transition-transform duration-300 hover:-translate-y-2"
+          >
+            <!-- Project image -->
+            <img
+              src="./images/ht.png"
+              alt="Health Tracker Platform Screenshot"
+              class="w-full h-48 object-cover"
+            />
+
+            <!-- Project info -->
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">
+                Health Tracker Platform
+              </h3>
+              <p class="text-sm text-slate-400 mb-4">
+                Designed modules for patient diagnosis and tracking, reducing
+                manual reporting time by 75% with an export feature.
+              </p>
+
+              <!-- Tech stack tags -->
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-[#1E1E20] text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >Java Spring Boot</span
+                >
+                <span
+                  class="inline-block bg-[#1E1E20] text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="inline-block bg-[#1E1E20] text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >Dynamic UI</span
+                >
+                <span
+                  class="inline-block bg-[#1E1E20] text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >AppExe</span
+                >
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex gap-4">
+                <a
+                  href="https://healthtrackeruat.mobilous.com/2.55/index.html"
+                  target="_blank"
+                  class="bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-4 rounded-lg text-sm text-center transition duration-300"
+                >
+                  View Live
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div
+            class="bg-[#111112] rounded-lg overflow-hidden shadow-[0_0_2px_1px_rgba(34,197,255,0.5)] transition-transform duration-300 hover:-translate-y-2"
+          >
+            <img
+              src="./images/jinsafe.png"
+              alt="JINSAFE App Screenshot"
+              class="w-full h-48 object-cover"
+            />
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-white mb-2">
+                JINSAFE - Safety Reporting App
+              </h3>
+              <p class="text-sm text-slate-400 mb-4">
+                Built a cross-department incident reporting system for 500+
+                employees with interactive charts to visualize safety insights.
+              </p>
+
+              <!-- Tech stack tags -->
+              <div class="mb-4">
+                <span
+                  class="inline-block bg-[#1E1E20] text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="inline-block bg-[#1E1E20] text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >Google Charts</span
+                >
+                <span
+                  class="inline-block bg-[#1E1E20] text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >Java Spring Boot</span
+                >
+                <span
+                  class="inline-block bg-[#1E1E20] text-sky-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full"
+                  >AppExe</span
+                >
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex gap-4">
+                <a
+                  href="https://mobilousdev.jindalsteel.com/appexe/jsplapps/24/bin/mobileweb2/index_2.html#page_207_1"
+                  target="_blank"
+                  class="bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-4 rounded-lg text-sm text-center transition duration-300"
+                >
+                  View Live
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Grid -->
+      </div>
+      <!-- End Container -->
+    </section>
+
+    <!-- End of project section -->
+
+    <!-- ===== Contact Section ===== -->
+    <section
+      id="contact"
+      class="min-h-screen flex items-center justify-center py-18 px-4"
+    >
+      <!-- Main container, centered content -->
+      <div class="container mx-auto max-w-2xl">
+        <!-- Section title -->
+        <div class="text-center mb-6">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white">Contact Me</h2>
+          <!-- tiny underline for style -->
+          <div class="w-24 h-1 bg-[#4EDCD8] mt-2 mx-auto"></div>
+        </div>
+
+        <!-- Form card -->
+        <div class="bg-[#111112] p-6 md:p-8 rounded-lg shadow-lg -mt-2">
+          <form action="#" method="POST">
+            <!-- Name input -->
+            <div class="mb-4 md:mb-6">
+              <label
+                for="name"
+                class="block mb-1 text-sm font-medium text-slate-300"
+                >Your Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full p-2 md:p-3 rounded-lg bg-[#1E1E20] text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-sky-500 transition duration-300"
+                placeholder="Type your amazing name here..."
+                required
+              />
+            </div>
+
+            <!-- Email input -->
+            <div class="mb-4 md:mb-6">
+              <label
+                for="email"
+                class="block mb-1 text-sm font-medium text-slate-300"
+                >Your Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full p-2 md:p-3 rounded-lg bg-[#1E1E20] text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-sky-500 transition duration-300"
+                placeholder="Enter your super important email..."
+                required
+              />
+            </div>
+
+            <!-- Message textarea -->
+            <div class="mb-4 md:mb-6">
+              <label
+                for="message"
+                class="block mb-1 text-sm font-medium text-slate-300"
+                >Your Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="w-full p-2 md:p-3 rounded-lg bg-[#1E1E20] text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-sky-500 transition duration-300"
+                placeholder="Write something awesome..."
+                required
+              ></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <div class="text-center">
+              <button
+                type="submit"
+                class="bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-bold py-2 md:py-3 px-4 md:px-8 rounded-lg transition duration-300 w-full md:w-auto"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- end of contact section -->
+
+    <footer
+      class="bg-[#111112] border-t border-slate-700 text-center py-6 px-4"
+    >
+      <!-- Main footer container -->
+      <div class="container mx-auto flex flex-col items-center gap-4">
+        <!-- Contact buttons: call & email -->
+        <div class="flex flex-wrap justify-center gap-3">
+          <!-- Call button -->
+          <a
+            href="tel:+919097796487"
+            class="border border-slate-500 hover:bg-[#1E1E20] text-white font-semibold py-2 px-5 rounded-lg transition duration-300"
+          >
+            Call Me
+            <!-- Ring ring, pick up! -->
+          </a>
+
+          <!-- Email button -->
+          <a
+            href="mailto:karankumar00619@gmail.com"
+            class="bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-5 rounded-lg transition duration-300"
+          >
+            Email Me
+            <!-- Send me an epic email -->
+          </a>
+        </div>
+
+        <!-- Footer copyright -->
+        <p class="text-sm text-slate-400 mt-2">
+          &copy; 2025 Karan Kumar
+          <!-- I made this, so copyright LOL -->
+        </p>
+      </div>
+    </footer>
+
+    <!-- little javascript for dark light toggle button -->
+
+    <script>
+      const themeToggleBtn = document.getElementById("theme-toggle-button");
+      const moonIcon = document.getElementById("moon-icon");
+      const sunIcon = document.getElementById("sun-icon");
+
+      themeToggleBtn.addEventListener("click", () => {
+        moonIcon.classList.toggle("hidden");
+        sunIcon.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
