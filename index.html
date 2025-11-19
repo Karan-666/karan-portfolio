@@ -1,17 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Karan Kumar | MERN Stack Developer</title>
+    
+    <!-- Linking the Tailwind CSS file so the design works -->
     <link href="./tailwind4/output.css" rel="stylesheet" />
+    
     <style>
-      /* smooth scrolling */
+      /* This makes the page scroll nicely when you click links, instead of jumping */
       html {
         scroll-behavior: smooth;
       }
-      /* Custom scrollbar for project cards if content overflows */
+      /* Making the scrollbar look cool (dark mode style) for project cards */
       .card-scroll::-webkit-scrollbar {
         width: 4px;
       }
@@ -21,11 +23,16 @@
       }
     </style>
   </head>
+
+  <!-- Body background is dark black (#0B0B0C) and text is light grey for easy reading -->
   <body class="bg-[#0B0B0C] text-slate-200 font-sans">
     
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- This is the top bar. It stays fixed at the top (sticky) so users can always find the menu. -->
     <header
       class="w-full fixed top-0 left-0 flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-[#111112]/95 backdrop-blur-md z-50 border-b border-slate-800"
     >
+      <!-- My Name on the left with a cool gradient color effect -->
       <h1
         class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#4EDCD8] to-blue-500 text-transparent bg-clip-text mb-2 sm:mb-0"
       >
@@ -33,18 +40,23 @@
       </h1>
 
       <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+        <!-- Theme Toggle Button (Moon/Sun) -->
+        <!-- Currently just visual, but shows I know how to build UI controls -->
         <button
           id="theme-toggle-button"
           class="p-2 rounded-full hover:bg-[#1E1E20] transition duration-300 self-start sm:self-auto"
         >
+          <!-- Moon Icon (Visible by default) -->
           <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
           </svg>
+          <!-- Sun Icon (Hidden by default) -->
           <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M12 12a5 5 0 015 5H7a5 5 0 015-5z" />
           </svg>
         </button>
 
+        <!-- Navigation Links: These jump to different parts of the page -->
         <nav class="flex flex-col sm:flex-row gap-2 sm:gap-6 text-center">
           <a href="#home" class="hover:text-[#4EDCD8] transition">Home</a>
           <a href="#about" class="hover:text-[#4EDCD8] transition">About</a>
@@ -56,23 +68,32 @@
       </div>
     </header>
 
+    <!-- ================= HERO / HOME SECTION ================= -->
+    <!-- This is the first thing people see. Big text, profile pic, and resume button. -->
     <section id="home" class="min-h-screen flex items-center justify-center py-20 px-4 scroll-mt-20">
       <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        <!-- Left side: The Text Intro -->
         <div class="md:w-2/3 flex flex-col gap-6 items-start">
           <h1 class="text-5xl lg:text-7xl font-bold text-white">
             Hi, I’m Karan Kumar
           </h1>
+          <!-- The headline that sells me to recruiters -->
           <p class="text-xl lg:text-2xl text-slate-400">
             Full-Stack MERN Developer | 2.5 Years Exp | Immediate Joiner
           </p>
+          
+          <!-- Main Buttons: View Work & Download Resume -->
           <div class="flex flex-col sm:flex-row gap-4 mt-4">
             <a href="#projects" class="bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:-translate-y-1">
               View Projects
             </a>
-            <a href="./resources/Karan_Kumar_MERN_Stack_Developer_Immediate_Joiner.pdf" target="_blank" class="border border-slate-500 hover:bg-[#1E1E20] text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:-translate-y-1">
+            <a href="./resources/resume.pdf" target="_blank" class="border border-slate-500 hover:bg-[#1E1E20] text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:-translate-y-1">
               Download Resume
             </a>
           </div>
+
+          <!-- Social Icons: GitHub, LinkedIn, HackerRank -->
           <div class="flex items-center gap-6 mt-6">
              <a href="https://github.com/Karan-666" target="_blank" class="hover:scale-110 transition-transform duration-300">
               <img src="./images/github.svg" alt="GitHub" class="w-8 h-8 transition duration-300 filter invert brightness-0 hover:invert-0 hover:brightness-150 hover:drop-shadow-[0_0_6px_#14b8a6]" />
@@ -85,17 +106,24 @@
             </a>
           </div>
         </div>
+
+        <!-- Right side: Profile Picture -->
         <div class="md:w-1/3 flex justify-center mt-10 md:mt-0">
-           <img src="./images/profile_yellow_bg.png" alt="Karan Profile Picture" class="w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full object-cover shadow-lg shadow-sky-500/30 transition-transform duration-500 hover:scale-105" />
+          <img src="./images/profile_yellow_bg.png" alt="Karan Profile Picture" class="w-64 h-64 sm:w-72 sm:h-72 lg:w-96 lg:h-96 rounded-full object-cover shadow-lg shadow-sky-500/30 transition-transform duration-500 hover:scale-105" />
         </div>
       </div>
     </section>
 
+    <!-- ================= ABOUT SECTION ================= -->
+    <!-- A quick summary of who I am and my background -->
     <section id="about" class="min-h-screen flex items-center justify-center py-20 px-4">
       <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+        
+        <!-- About Text -->
         <div class="md:w-2/3 flex flex-col gap-6 items-start">
           <div class="inline-flex flex-col items-center">
             <h1 class="text-5xl lg:text-6xl font-bold text-white">About Me</h1>
+            <!-- Small teal underline for style -->
             <div class="w-2/3 h-1 bg-[#4EDCD8] mt-2"></div>
           </div>
           <p class="text-lg lg:text-xl text-slate-400 pt-5 leading-relaxed">
@@ -106,20 +134,27 @@
             More About Me
           </a>
         </div>
+
+        <!-- About Image (Maybe a travel or hobby pic) -->
         <div class="md:w-1/3 flex justify-center mt-10 md:mt-0">
           <img src="./images/beach.jpg" alt="Profile" class="w-64 h-48 sm:w-72 sm:h-56 lg:w-96 lg:h-72 object-cover shadow-lg shadow-sky-500/30 border-2 border-black rounded-lg" />
         </div>
       </div>
     </section>
 
+    <!-- ================= SKILLS SECTION ================= -->
+    <!-- Showing off the technologies I know with cool progress bars -->
     <section id="skills" class="min-h-screen flex items-center py-20 px-4 bg-[#0f0f0f]">
       <div class="container mx-auto w-full">
         <div class="text-center mb-12">
           <h2 class="text-3xl lg:text-4xl font-bold text-white">Tech Stack</h2>
           <div class="w-25 h-1 bg-[#4EDCD8] mt-2 mx-auto"></div>
         </div>
+
+        <!-- Grid layout for skills -->
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
+          <!-- Skill 1: JavaScript -->
           <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">JavaScript (ES6+)</span>
@@ -130,6 +165,7 @@
             </div>
           </div>
 
+          <!-- Skill 2: React -->
           <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">React.js</span>
@@ -140,6 +176,7 @@
             </div>
           </div>
 
+          <!-- Skill 3: Redux -->
           <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">Redux Toolkit</span>
@@ -150,6 +187,7 @@
             </div>
           </div>
 
+          <!-- Skill 4: Node -->
           <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">Node.js / Express</span>
@@ -160,6 +198,7 @@
             </div>
           </div>
 
+          <!-- Skill 5: MongoDB -->
           <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">MongoDB</span>
@@ -170,6 +209,7 @@
             </div>
           </div>
 
+          <!-- Skill 6: Java -->
           <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">Java (Spring Boot)</span>
@@ -180,6 +220,7 @@
             </div>
           </div>
 
+          <!-- Skill 7: SQL -->
            <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">PostgreSQL / SQL</span>
@@ -190,6 +231,7 @@
             </div>
           </div>
 
+          <!-- Skill 8: Tailwind -->
           <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">Tailwind CSS</span>
@@ -200,6 +242,7 @@
             </div>
           </div>
 
+          <!-- Skill 9: Auth -->
           <div class="skill-card p-3 rounded-lg bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all duration-300 hover:scale-105">
             <div class="flex justify-between items-center mb-1">
               <span class="font-semibold text-slate-300">JWT Auth</span>
@@ -214,6 +257,8 @@
       </div>
     </section>
 
+    <!-- ================= CERTIFICATIONS SECTION ================= -->
+    <!-- Showing off my certificates. The top one is special! -->
     <section id="certifications" class="min-h-screen flex items-center py-20 px-4">
         <div class="container mx-auto">
           <div class="text-center mb-8">
@@ -223,6 +268,7 @@
   
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             
+            <!-- Certificate 1: Internshala (This one is highlighted in TEAL because it's MERN) -->
             <div class="bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all rounded-lg p-5 flex flex-col justify-between shadow-lg">
               <div>
                 <h3 class="text-lg font-bold text-[#4EDCD8] mb-1">Full Stack MERN Training</h3>
@@ -235,6 +281,7 @@
               </a>
             </div>
 
+            <!-- Certificate 2: Blockchain -->
             <div class="bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all rounded-lg p-5 flex flex-col justify-between shadow-lg">
               <div>
                 <h3 class="text-lg font-bold text-white mb-1">Blockchain Intern</h3>
@@ -246,6 +293,7 @@
               </a>
             </div>
   
+            <!-- Certificate 3: NPTEL -->
             <div class="bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all rounded-lg p-5 flex flex-col justify-between shadow-lg">
               <div>
                 <h3 class="text-lg font-bold text-white mb-1">Data Structures & Algo</h3>
@@ -257,6 +305,7 @@
               </a>
             </div>
 
+            <!-- Certificate 4: HackerRank -->
             <div class="bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all rounded-lg p-5 flex flex-col justify-between shadow-lg">
               <div>
                 <h3 class="text-lg font-bold text-white mb-1">6-Star Gold Problem Solving</h3>
@@ -268,6 +317,7 @@
               </a>
             </div>
 
+            <!-- Certificate 5: Public Speaking -->
             <div class="bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all rounded-lg p-5 flex flex-col justify-between shadow-lg">
               <div>
                 <h3 class="text-lg font-bold text-white mb-1">1st Prize Public Speaking</h3>
@@ -279,6 +329,7 @@
               </a>
             </div>
 
+            <!-- Certificate 6: CoCubes -->
             <div class="bg-[#111112] border border-slate-800 hover:border-[#4EDCD8] transition-all rounded-lg p-5 flex flex-col justify-between shadow-lg">
               <div>
                 <h3 class="text-lg font-bold text-white mb-1">CoCubes Assessment</h3>
@@ -294,6 +345,8 @@
         </div>
       </section>
 
+    <!-- ================= PROJECTS SECTION ================= -->
+    <!-- The main attraction! My recent work. -->
     <section id="projects" class="min-h-screen flex items-center justify-center py-10 px-4">
       <div class="container mx-auto w-full">
         <div class="text-center mb-8">
@@ -301,11 +354,14 @@
           <div class="w-24 h-1 bg-[#4EDCD8] mt-2 mx-auto"></div>
         </div>
 
+        <!-- Projects Grid: 3 columns on desktop so it fits one screen -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           
+          <!-- Project 1: YouTube Clone -->
           <div class="bg-[#111112] border border-slate-800 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(78,220,216,0.2)] transition-all flex flex-col">
-            <div class="h-32 w-full bg-gradient-to-br from-red-900 to-black flex items-center justify-center">
-                <span class="text-4xl">▶️</span>
+            <!-- Gradient Header with Icon -->
+            <div class="h-32 w-full bg-gradient-to-br from-red-900 to-black flex items-center justify-center ">
+                <span class="text-4xl inline-block translate-y-4">▶️</span>
             </div>
             <div class="p-4 flex-grow flex flex-col">
               <h3 class="text-lg font-bold text-white">YouTube Clone</h3>
@@ -317,6 +373,7 @@
             </div>
           </div>
 
+          <!-- Project 2: ShoppyGlobe -->
           <div class="bg-[#111112] border border-slate-800 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(78,220,216,0.2)] transition-all flex flex-col">
             <div class="h-32 w-full bg-gradient-to-br from-blue-900 to-black flex items-center justify-center">
                 <span class="text-4xl">🛒</span>
@@ -332,6 +389,7 @@
             </div>
           </div>
 
+          <!-- Project 3: Library System -->
           <div class="bg-[#111112] border border-slate-800 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(78,220,216,0.2)] transition-all flex flex-col">
             <div class="h-32 w-full bg-gradient-to-br from-amber-900 to-black flex items-center justify-center">
                 <span class="text-4xl">📚</span>
@@ -345,6 +403,7 @@
             </div>
           </div>
 
+          <!-- Project 4: Weather App -->
           <div class="bg-[#111112] border border-slate-800 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(78,220,216,0.2)] transition-all flex flex-col">
             <div class="h-32 w-full bg-gradient-to-br from-sky-900 to-black flex items-center justify-center">
                 <span class="text-4xl">☁️</span>
@@ -359,6 +418,7 @@
             </div>
           </div>
 
+          <!-- Project 5: To-Do List -->
           <div class="bg-[#111112] border border-slate-800 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(78,220,216,0.2)] transition-all flex flex-col">
             <div class="h-32 w-full bg-gradient-to-br from-purple-900 to-black flex items-center justify-center">
                 <span class="text-4xl">📝</span>
@@ -372,9 +432,12 @@
             </div>
           </div>
 
+          <!-- Project 6: Smart Email Engine (Moved Portfolio out) -->
+          <!-- IMPORTANT: Code is private, button is disabled -->
           <div class="bg-[#111112] border border-slate-800 rounded-lg overflow-hidden hover:shadow-[0_0_15px_rgba(78,220,216,0.2)] transition-all flex flex-col">
             <div class="h-32 w-full bg-gradient-to-br from-orange-900 to-black flex items-center justify-center">
-                <span class="text-4xl">📧</span>
+                <!-- Moved Icon Down using translate-y-4 as requested -->
+                <span class="text-4xl translate-y-4 inline-block">📧</span>
             </div>
             <div class="p-4 flex-grow flex flex-col">
               <h3 class="text-lg font-bold text-white">Smart Email Engine</h3>
@@ -393,26 +456,36 @@
       </div>
     </section>
 
+    <!-- ================= CONTACT SECTION ================= -->
+    <!-- A form for recruiters to reach me -->
     <section id="contact" class="min-h-screen flex items-center justify-center py-18 px-4">
       <div class="container mx-auto max-w-2xl">
         <div class="text-center mb-6">
           <h2 class="text-3xl lg:text-4xl font-bold text-white">Contact Me</h2>
           <div class="w-24 h-1 bg-[#4EDCD8] mt-2 mx-auto"></div>
         </div>
+        
         <div class="bg-[#111112] p-6 md:p-8 rounded-lg shadow-lg border border-slate-800">
           <form id="contactForm">
+            <!-- Name Input -->
             <div class="mb-4 md:mb-6">
               <label for="name" class="block mb-1 text-sm font-medium text-slate-300">Your Name</label>
               <input type="text" id="name" name="name" class="w-full p-2 md:p-3 rounded-lg bg-[#1E1E20] text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#4EDCD8] transition duration-300" placeholder="Type your name here..." required />
             </div>
+            
+            <!-- Email Input -->
             <div class="mb-4 md:mb-6">
               <label for="email" class="block mb-1 text-sm font-medium text-slate-300">Your Email</label>
               <input type="email" id="email" name="email" class="w-full p-2 md:p-3 rounded-lg bg-[#1E1E20] text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#4EDCD8] transition duration-300" placeholder="Enter your email..." required />
             </div>
+            
+            <!-- Message Input -->
             <div class="mb-4 md:mb-6">
               <label for="message" class="block mb-1 text-sm font-medium text-slate-300">Your Message</label>
               <textarea id="message" name="message" rows="4" class="w-full p-2 md:p-3 rounded-lg bg-[#1E1E20] text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#4EDCD8] transition duration-300" placeholder="Write something..." required></textarea>
             </div>
+            
+            <!-- Submit Button -->
             <div class="text-center">
               <button type="submit" class="bg-[#4EDCD8] hover:bg-[#3bbcb8] text-black font-bold py-2 md:py-3 px-4 md:px-8 rounded-lg transition duration-300 w-full md:w-auto">
                 Send Message
@@ -423,6 +496,8 @@
       </div>
     </section>
 
+    <!-- ================= FOOTER ================= -->
+    <!-- Bottom of the page stuff -->
     <footer class="bg-[#111112] border-t border-slate-700 text-center py-6 px-4">
       <div class="container mx-auto flex flex-col items-center gap-4">
         <div class="flex flex-wrap justify-center gap-3">
@@ -433,20 +508,23 @@
       </div>
     </footer>
 
+    <!-- ================= JAVASCRIPT ================= -->
     <script>
-      // Theme Toggle (Visual only for now)
+      // Logic for the Theme Toggle (Switches the sun/moon icon)
       const themeToggleBtn = document.getElementById("theme-toggle-button");
       const moonIcon = document.getElementById("moon-icon");
       const sunIcon = document.getElementById("sun-icon");
+      
       themeToggleBtn.addEventListener("click", () => {
         moonIcon.classList.toggle("hidden");
         sunIcon.classList.toggle("hidden");
       });
 
-      // Contact Form Alert Logic
+      // Logic for the Contact Form
+      // Prevents actual submission and shows an alert + LinkedIn link
       const form = document.getElementById('contactForm');
       form.addEventListener('submit', (e) => {
-        e.preventDefault(); // Stop actual submission
+        e.preventDefault(); // Stop the page from reloading
         alert("Something went wrong with the server! Please contact me via LinkedIn: linkedin.com/in/karan842");
         window.open("https://www.linkedin.com/in/karan842/", "_blank");
       });
